@@ -5,7 +5,7 @@ import Loading from './pages/Loading';
 import Result from './pages/Result';
 import type { VibeResult } from './types/vibe';
 import { analyzeName } from './engine/nameVibeEngine';
-import { Sparkles } from 'lucide-react';
+import namevibe from "../src/assets/namevibe.png"
 
 function App() {
   const [view, setView] = useState<'home' | 'loading' | 'result'>('home');
@@ -30,20 +30,16 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground font-sans overflow-x-hidden flex flex-col">
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-background/50 border-b border-white/5">
         <div 
           className="flex items-center gap-2 cursor-pointer group"
           onClick={handleReset}
         >
-          <Sparkles className="w-5 h-5 text-primary group-hover:text-accent transition-colors" />
+          <img src={namevibe} alt="NameVibe Logo" className="w-6 h-6 object-contain transition-transform group-hover:scale-110" />
           <span className="font-bold text-lg tracking-tight">NameVibe</span>
         </div>
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-white/60">
-          <a href="#" className="hover:text-white transition-colors">Home</a>
-          <a href="#" className="hover:text-white transition-colors">How It Works</a>
-          <a href="#" className="hover:text-white transition-colors">About</a>
-        </div>
+
         <button 
           onClick={handleReset}
           className="text-sm font-medium text-white/80 hover:text-white transition-colors"
@@ -52,7 +48,7 @@ function App() {
         </button>
       </nav>
 
-      <main className="pt-24 pb-16 min-h-screen flex flex-col items-center">
+      <main className="pt-24 pb-16 flex-1 flex flex-col items-center">
         <AnimatePresence mode="wait">
           {view === 'home' && (
             <motion.div
@@ -94,6 +90,20 @@ function App() {
           )}
         </AnimatePresence>
       </main>
+
+      <footer className="w-full py-6 flex justify-center items-center border-t border-white/5 bg-background/50 backdrop-blur-sm relative z-10">
+        <p className="text-white/40 text-sm">
+          developed by{' '}
+          <a 
+            href="https://devpb.vercel.app" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-primary transition-colors font-medium"
+          >
+            Dev. P
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }

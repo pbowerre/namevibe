@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import type { VibeResult } from '../types/vibe';
 import { ShareButtons } from '../components/ShareButtons';
-import { ArrowLeft, Sparkles, Heart, Briefcase, Utensils, Brain, Coffee } from 'lucide-react';
+import { ArrowLeft, Heart, Briefcase, Utensils, Brain, Coffee } from 'lucide-react';
 import { useNameHistory } from '../hooks/useNameHistory';
-
+import namevibe from "../assets/namevibe.png"
 interface ResultProps {
   result: VibeResult;
   onReset: () => void;
@@ -47,7 +47,7 @@ export default function Result({ result, onReset }: ResultProps) {
 
         <div className="flex items-center justify-between mb-8 relative z-10">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-primary" />
+            <img src={namevibe} alt="NameVibe Logo" className="w-6 h-6 object-contain" />
             <span className="font-bold text-sm tracking-tight text-white/80">NameVibe</span>
           </div>
           <span className="text-2xl">{result.gender === 'woman' ? '👩' : '👨'}</span>
