@@ -48,7 +48,7 @@ function App() {
         </button>
       </nav>
 
-      <main className="pt-24 pb-16 flex-1 flex flex-col items-center">
+      <main className="pt-12 pb-16 flex-1 flex flex-col items-center">
         <AnimatePresence mode="wait">
           {view === 'home' && (
             <motion.div
@@ -57,7 +57,7 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
-              className="w-full max-w-xl px-4 flex flex-col items-center mt-12 md:mt-24"
+              className="w-full max-w-xl px-4 flex flex-col items-center mt-6 md:mt-10"
             >
               <Home onAnalyze={handleAnalyze} />
             </motion.div>

@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import type { VibeResult } from '../types/vibe';
 import { ShareButtons } from '../components/ShareButtons';
-import { ArrowLeft, Heart, Briefcase, Utensils, Brain, Coffee } from 'lucide-react';
+import { ArrowLeft, Heart, Briefcase, Utensils, Brain, Coffee, Flame } from 'lucide-react';
 import { useNameHistory } from '../hooks/useNameHistory';
 import namevibe from "../assets/namevibe.png"
 interface ResultProps {
@@ -97,11 +97,12 @@ export default function Result({ result, onReset }: ResultProps) {
           animate="visible"
           className="flex flex-col gap-3 relative z-10"
         >
-
-          <CategoryCard icon={<Heart className="w-4 h-4 text-rose-400" />} title="Relationship Energy" score={result.categories.relationship.score} text={result.categories.relationship.text} />
-          <CategoryCard icon={<Briefcase className="w-4 h-4 text-blue-400" />} title="Hardworking" score={result.categories.hardworking.score} text={result.categories.hardworking.text} />
-          <CategoryCard icon={<Brain className="w-4 h-4 text-purple-400" />} title="Intelligence" score={result.categories.intelligence.score} text={result.categories.intelligence.text} />
-          
+          <div className="grid grid-cols-2 gap-3 w-full">
+            <CategoryCard icon={<Heart className="w-4 h-4 text-rose-400" />} title="Relationship" score={result.categories.relationship.score} text={result.categories.relationship.text} />
+            <CategoryCard icon={<Briefcase className="w-4 h-4 text-blue-400" />} title="Hardworking" score={result.categories.hardworking.score} text={result.categories.hardworking.text} />
+            <CategoryCard icon={<Brain className="w-4 h-4 text-purple-400" />} title="Intelligence" score={result.categories.intelligence.score} text={result.categories.intelligence.text} />
+            <CategoryCard icon={<Flame className="w-4 h-4 text-orange-400" />} title="Confidence" score={result.categories.confidence.score} text={result.categories.confidence.text} />
+          </div>
 
           <motion.div variants={itemVariants} className="mt-4 bg-white/5 border border-white/5 rounded-2xl p-4 flex items-start gap-4">
             <div className="p-3 bg-orange-500/20 rounded-xl">
@@ -155,14 +156,14 @@ const CategoryCard = ({ icon, title, score, text }: { icon: ReactNode, title: st
       className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5"
     >
       <div className="flex flex-col gap-1 w-full">
-        <div className="flex items-center justify-between mb-1">
-          <div className="flex items-center gap-2 text-white/80">
+        <div className="flex items-center justify-between mb-1 gap-1">
+          <div className="flex items-center gap-1.5 text-white/80 min-w-0">
             {icon}
-            <span className="text-sm font-semibold">{title}</span>
+            <span className="text-[11px] font-semibold truncate leading-none">{title}</span>
           </div>
-          <span className="text-sm font-bold">{score}%</span>
+          <span className="text-xs font-bold shrink-0">{score}%</span>
         </div>
-        <p className="text-xs text-white/50">{text}</p>
+        <p className="text-[10px] leading-tight text-white/50 h-6 overflow-hidden line-clamp-2" title={text}>{text}</p>
         <div className="w-full h-1 bg-white/10 rounded-full mt-2 overflow-hidden">
           <motion.div 
             initial={{ width: 0 }}

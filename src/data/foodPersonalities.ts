@@ -12,5 +12,18 @@ export const foodPersonalities = [
   "Will probably say 'I'm not hungry' and still eat your food.",
   "Secretly judges your cooking. 👀",
   "Sweet tooth ambassador 🍫",
-  "Needs a little treat after every minor inconvenience."
+  "Needs a little treat after every minor inconvenience.",
+  "Hates sharing but expects you to share with them.",
+  "Can drink 5 cups of coffee and still take a nap. ☕",
+  "Eats their feelings and their friends' feelings too.",
+  "Will spend their last penny on takeout.",
+  "Picky eater energy but denies it.",
+  "Always ordering the same exact thing. Zero risks.",
+  "Adds extra cheese to literally everything. 🧀",
+  "Eats the toppings and leaves the rest of the pizza.",
+  "Will judge your spice tolerance. 🌶️",
+  "Breakfast skipper, 1 AM snacker.",
+  "Takes pictures of food until it gets cold. 📸",
+  "Can finish a family-size meal and ask 'what's for dessert?'",
+  "Will cancel plans if the food isn't going to be good."
 ];
